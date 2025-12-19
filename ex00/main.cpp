@@ -4,6 +4,10 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+/**
+ * @brief Main function. Tests Animal polymorphism and WrongAnimal behavior.
+ * @return 0 on success.
+ */
 int main()
 {
 	std::cout << "\n==== Subject-like polymorphism test ====\n";
