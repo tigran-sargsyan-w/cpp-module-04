@@ -1,0 +1,9 @@
+.vscode/
+*.o
+*.d
+*.out
+
+ex00/polymorphism
+ex01/
+ex02/
+ex03/
