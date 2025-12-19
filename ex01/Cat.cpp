@@ -1,7 +1,8 @@
 #include "Cat.hpp"
 
 /**
- * @brief Default constructor for Cat. Sets type to "Cat".
+ * @brief Default constructor for Cat.
+ * Sets type to "Cat". Initializes brain.
  */
 Cat::Cat() : brain(new Brain())
 {
@@ -11,6 +12,7 @@ Cat::Cat() : brain(new Brain())
 
 /**
  * @brief Copy constructor for Cat.
+ * Initializes brain with a deep copy.
  * @param other The Cat object to copy from.
  */
 Cat::Cat(const Cat& other) : Animal(other), brain(new Brain(*other.brain))
@@ -20,6 +22,7 @@ Cat::Cat(const Cat& other) : Animal(other), brain(new Brain(*other.brain))
 
 /**
  * @brief Copy assignment operator for Cat.
+ * Deep copies the brain.
  * @param other The Cat object to assign from.
  * @return Reference to the assigned Cat object.
  */
@@ -38,6 +41,7 @@ Cat& Cat::operator=(const Cat& other)
 
 /**
  * @brief Destructor for Cat.
+ * Deletes the brain.
  */
 Cat::~Cat()
 {
@@ -53,11 +57,21 @@ void Cat::makeSound() const
 	std::cout << "Meow!\n";
 }
 
+/**
+ * @brief Sets an idea in the Cat's brain.
+ * @param index The index to set the idea at (0-99).
+ * @param idea The idea to set.
+ */
 void Cat::setIdea(int index, const std::string& idea)
 {
     brain->setIdea(index, idea);
 }
 
+/**
+ * @brief Gets an idea from the Cat's brain.
+ * @param index The index to get the idea from (0-99).
+ * @return The idea at the specified index.
+ */
 const std::string& Cat::getIdea(int index) const
 {
     return brain->getIdea(index);
