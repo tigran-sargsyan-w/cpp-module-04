@@ -3,6 +3,9 @@
 #include "Cat.hpp"
 #include <iostream>
 
+/**
+ * @brief Tests creation and deletion of an array of Animals (Dogs and Cats).
+ */
 static void testArrayDeletion()
 {
     std::cout << "\n=== Array creation/deletion test ===" << std::endl;
@@ -23,6 +26,9 @@ static void testArrayDeletion()
         delete animals[i];
 }
 
+/** 
+ * @brief Tests deep copy functionality for Dog class.
+ */
 static void testDeepCopyDog()
 {
     std::cout << "\n=== Deep copy test (Dog) ===" << std::endl;
@@ -44,6 +50,9 @@ static void testDeepCopyDog()
     std::cout << "Original idea[0]: " << original.getIdea(0) << std::endl;
 }
 
+/** 
+ * @brief Tests deep copy functionality for Cat class.
+ */
 static void testDeepCopyCat()
 {
     std::cout << "\n=== Deep copy test (Cat) ===" << std::endl;
@@ -58,6 +67,10 @@ static void testDeepCopyCat()
     std::cout << "Copy idea[0]:     " << copy.getIdea(0) << std::endl;
 }
 
+/**
+ * @brief Main function to run tests.
+ * @return 0 on success.
+ */
 int main()
 {
     testArrayDeletion();
