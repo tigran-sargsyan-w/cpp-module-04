@@ -77,6 +77,10 @@ int main()
     testDeepCopyDog();
     testDeepCopyCat();
 
+    // Animal animal;                // ❌ should NOT compile: Animal is abstract
+    // Animal* p = new Animal();     // ❌ should NOT compile: Animal is abstract
+    // delete p;
+    
     std::cout << "\n=== Done ===" << std::endl;
     return 0;
 }

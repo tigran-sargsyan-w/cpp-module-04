@@ -47,12 +47,3 @@ std::string Animal::getType() const
 {
 	return type;
 }
-
-/**
- * @brief Makes a sound.
- * Prints a generic animal sound.
- */
-void Animal::makeSound() const
-{
-	std::cout << "* generic animal sound *\n";
-}
