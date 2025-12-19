@@ -2,7 +2,7 @@
 #                                Makefile (C++)                                #
 # **************************************************************************** #
 
-NAME     := polymorphism
+NAME     := brain
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g3
 
@@ -10,7 +10,8 @@ OBJ_DIR  := obj/
 
 SRCS     := main.cpp \
           Animal.cpp Dog.cpp Cat.cpp \
-          WrongAnimal.cpp WrongCat.cpp
+          WrongAnimal.cpp WrongCat.cpp \
+		  Brain.cpp
 
 OBJS     := $(SRCS:%.cpp=$(OBJ_DIR)%.o)
 DEPS     := $(SRCS:%.cpp=$(OBJ_DIR)%.d)
