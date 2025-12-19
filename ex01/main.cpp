@@ -1,58 +1,69 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include <iostream>
 
-/**
- * @brief Main function. Tests Animal polymorphism and WrongAnimal behavior.
- * @return 0 on success.
- */
+static void testArrayDeletion()
+{
+    std::cout << "\n=== Array creation/deletion test ===" << std::endl;
+
+    const int count = 10;
+    Animal* animals[count];
+
+    for (int i = 0; i < count; i++)
+    {
+        if (i < count / 2)
+            animals[i] = new Dog();
+        else
+            animals[i] = new Cat();
+    }
+
+    std::cout << "\n--- Deleting animals through Animal* ---" << std::endl;
+    for (int i = 0; i < count; i++)
+        delete animals[i];
+}
+
+static void testDeepCopyDog()
+{
+    std::cout << "\n=== Deep copy test (Dog) ===" << std::endl;
+
+    Dog original;
+    original.setIdea(0, "I want a bone");
+
+    Dog copy(original);
+    original.setIdea(0, "I want to sleep");
+
+    std::cout << "Original idea[0]: " << original.getIdea(0) << std::endl;
+    std::cout << "Copy idea[0]:     " << copy.getIdea(0) << std::endl;
+
+    Dog assigned;
+    assigned = original;
+    original.setIdea(0, "Changed again");
+
+    std::cout << "Assigned idea[0]: " << assigned.getIdea(0) << std::endl;
+    std::cout << "Original idea[0]: " << original.getIdea(0) << std::endl;
+}
+
+static void testDeepCopyCat()
+{
+    std::cout << "\n=== Deep copy test (Cat) ===" << std::endl;
+
+    Cat original;
+    original.setIdea(0, "I rule this house");
+
+    Cat copy = original;
+    original.setIdea(0, "Actually, I rule the universe");
+
+    std::cout << "Original idea[0]: " << original.getIdea(0) << std::endl;
+    std::cout << "Copy idea[0]:     " << copy.getIdea(0) << std::endl;
+}
+
 int main()
 {
-	std::cout << "\n==== Subject-like polymorphism test ====\n";
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+    testArrayDeletion();
+    testDeepCopyDog();
+    testDeepCopyCat();
 
-	std::cout << j->getType() << "\n";
-	std::cout << i->getType() << "\n";
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-
-	delete i;
-	delete j;
-	delete meta;
-
-    std::cout << "\n==== Animal copy tests ====\n";
-	Dog a;
-	Dog b(a);
-	Dog c;
-	c = a;
-	a.makeSound();
-	b.makeSound();
-	c.makeSound();
-
-    std::cout << "\n==== WrongAnimal test (no virtual makeSound) ====\n";
-	const WrongAnimal* wa = new WrongAnimal();
-	const WrongAnimal* wc = new WrongCat();
-
-	std::cout << wa->getType() << "\n";
-	std::cout << wc->getType() << "\n";
-	wa->makeSound();
-	wc->makeSound(); // <-- it will call WrongAnimal's makeSound, not WrongCat's
-
-	delete wc;
-	delete wa;
-    
-    std::cout << "\n==== Stack objects (destruction order visible) ====\n";
-    Animal x;
-    Cat y;
-    Dog z;
-    x.makeSound();
-    y.makeSound();
-    z.makeSound();
-
-	return 0;
+    std::cout << "\n=== Done ===" << std::endl;
+    return 0;
 }
