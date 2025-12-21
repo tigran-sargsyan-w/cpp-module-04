@@ -25,7 +25,6 @@ AMateria::AMateria(const AMateria & other)
 
 /**
  * @brief Destructor
- * Cleans up resources used by AMateria.
  */
 AMateria::~AMateria() {}
 
