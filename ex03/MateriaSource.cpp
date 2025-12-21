@@ -55,14 +55,17 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
 	if (!materia)
 		return;
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
 	{
 		if (!memory[i])
 		{
-			memory[i] = materia;
-			break;
+			memory[i] = materia->clone();
+			delete materia; // We saved a copy, the original is no longer needed.
+			return;
 		}
 	}
+	// Memory full: delete incoming, otherwise there will be a leak
+	delete materia;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
