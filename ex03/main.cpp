@@ -6,6 +6,10 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
+/**
+ * @brief Run subject tests
+ * Executes the mandatory test cases described in the subject.
+ */
 static void subjectTest()
 {
 	std::cout << "\n--- Subject tests ---" << std::endl;
@@ -32,6 +36,10 @@ static void subjectTest()
 	delete src;
 }
 
+/**
+ * @brief Run extra tests
+ * Executes additional test cases for deep copies, inventory overflow, etc.
+ */
 static void extraTests()
 {
 	std::cout << "\n--- Extra tests ---" << std::endl;
@@ -80,6 +88,10 @@ static void extraTests()
 		std::cout << "Unknown materia: OK (returned 0)" << std::endl;
 }
 
+/**
+ * @brief Run abstract and delete tests
+ * Demonstrates abstract class constraints and pointer behavior after deletion.
+ */
 static void abstractAndDeleteTest()
 {
 	std::cout << "\n--- Abstract and delete test ---" << std::endl;
@@ -107,6 +119,11 @@ static void abstractAndDeleteTest()
 		std::cout << "ice is NOT NULL, but dangling pointer!" << std::endl;
 }
 
+/**
+ * @brief Main entry point
+ * Runs all test suites.
+ * @return 0 on success
+ */
 int main()
 {
 	subjectTest();
