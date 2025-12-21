@@ -23,7 +23,7 @@ class Character : public ICharacter
 		Character & operator=(const Character & other);
 
 		virtual std::string const & getName() const;
-		virtual void equip(AMateria* m);
+		virtual void equip(AMateria* materia);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
 };
