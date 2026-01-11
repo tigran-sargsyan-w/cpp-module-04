@@ -1,7 +1,8 @@
 # C++ Module 04 – Subtype Polymorphism, Abstract Classes & Interfaces 🐾🧠🧊
 
 ✅ **Status**: Completed – all exercises  
-🏫 **School**: 42 – C++ Modules (Module 04)
+🏫 **School**: 42 – C++ Modules (Module 04)  
+🏅 **Score**: 100/100
 
 > *Subtype polymorphism, virtual functions, deep copies, abstract classes, and “interfaces” via pure abstract classes (C++98).*
 
